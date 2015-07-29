@@ -1,0 +1,1 @@
+$("a[data-favorite='<%= @favorite.favorable_type %>-<%= @favorite.favorable_id %>']").html('<a data-favorite="<%= @favorite.favorable_type %>-<%= @favorite.favorable_id %>" data-remote="true" rel="nofollow" data-method="delete" href="/favorites/<%= @favorite.id %>"><i class="fa fa-star"></i></a>');

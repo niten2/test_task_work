@@ -1,0 +1,19 @@
+doctype html
+head
+  title &laquo;ArtVisionTestApp&raquo;
+  = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+  = javascript_include_tag 'application', 'data-turbolinks-track' => true
+  = csrf_meta_tags
+body
+  .menu
+    - if current_user
+      = link_to 'Companies', root_path
+      = link_to 'My Favorites', favorites_path
+      = link_to 'Logout', destroy_user_session_path, method: :delete
+    - else
+      = link_to 'Sign up', new_user_registration_path
+      = link_to 'Log in', new_user_session_path
+
+  p.notice= notice if flash[:notice]
+  p.alert= alert if flash[:alert]
+  = yield

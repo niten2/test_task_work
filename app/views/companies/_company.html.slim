@@ -1,0 +1,3 @@
+span Company: #{company.name}
+= link_to favorite_path(company.favorites.find_user(current_user)), method: :delete, data: { favorite: "#{company.class.name}-#{company.id}" }, remote: true do
+  = fa_icon "star"

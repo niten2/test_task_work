@@ -1,0 +1,18 @@
+.container
+  strong Company name:
+  = @company.name
+  br
+  strong Country:
+  = Country.new(@company.country_code)
+  br
+  strong Staff:
+  ul
+    - @company.persons.each do |person|
+      li
+        = person.first_name + " " + person.last_name
+        - if Favorite.user_exists(person, current_user)
+          = link_to favorite_path(person.favorites.find_user(current_user)), method: :delete, data: { favorite: "#{person.class.name}-#{person.id}" }, remote: true do
+            = fa_icon "star"
+        - else
+          = link_to favorites_path(id: person, type: person.class.name), method: :post, data: { favorite: "#{person.class.name}-#{person.id}" }, remote: true do
+            = fa_icon "star-o"

@@ -1,0 +1,16 @@
+.container
+  h3 Companies
+  ul.companies_list
+    - @companies.each do |company|
+      li
+        = link_to company.name, company, class: 'pull-left'
+        - if Favorite.user_exists(company, current_user)
+          = link_to favorite_path(company.favorites.find_user(current_user)), method: :delete, data: { favorite: "#{company.class.name}-#{company.id}" }, remote: true do
+            = fa_icon "star"
+        - else
+          = link_to favorites_path(id: company, type: company.class.name), method: :post, data: { favorite: "#{company.class.name}-#{company.id}" }, remote: true do
+            = fa_icon "star-o"
+        .pull-right= Country.new(company.country_code)
+        .clearfix
+
+
