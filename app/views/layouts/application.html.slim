@@ -14,6 +14,7 @@ body
       = link_to 'Sign up', new_user_registration_path
       = link_to 'Log in', new_user_session_path
 
-  p.notice= notice if flash[:notice]
-  p.alert= alert if flash[:alert]
+  .center
+    p.notice= notice if flash[:notice]
+    p.alert= alert if flash[:alert]
   = yield
