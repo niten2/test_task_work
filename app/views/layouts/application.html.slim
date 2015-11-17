@@ -5,7 +5,7 @@ head
   = javascript_include_tag 'application', 'data-turbolinks-track' => true
   = csrf_meta_tags
 body
-  .menu
+  .center.menu
     - if current_user
       = link_to 'Companies', root_path
       = link_to 'My Favorites', favorites_path
