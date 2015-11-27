@@ -1,5 +1,7 @@
 В проекте использовал: Devise, Faker, Rspec, Capybara, Ajax
 
+Демо версия сайта [здесь](http://test-task-work.herokuapp.com)
+
 Код проекта здесь
 
 Демо версия сайта здесь
